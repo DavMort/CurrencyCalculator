@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Converter</title>
+</head>
+<body>
+<h1>Currency Converter</h1>
+<div>
+  <p>Currency Converter</p>
+  <div>
+    <span th:text="'USD to NOK = ' + ${USDtoNOK}"></span>
+    <span th:text="' | USD to SEK = ' + ${USDtoSEK}"></span>
+    <span th:text="' | USD to EUR = ' + ${USDtoEUR}"></span>
+    <span th:text="' | SEK to NOK = ' + ${SEKtoNOK}"></span>
+  </div>
+  <br>
+  <!--    <a th:href="@{'/plant/' + ${plant.id}}">-->
+
+  <form action="/getRate" method="post" th:object="${currencyClass}">
+    <select id="from" name="from">
+      <option th:each="fCurrency : ${currencies}" th:value="${fCurrency}" th:text="${fCurrency}" th:selected="${fCurrency == selectedFrom}"></option>
+    </select>
+    <select id="to" name="to">
+      <option th:each="tCurrency : ${currencies}" th:value="${tCurrency}" th:text="${tCurrency}" th:selected="${tCurrency == selectedTo}"></option>
+    </select>
+    <button type="submit">Calculate</button>
+  </form>
+<br>
+  <div>
+    <h3 th:text="'1 ' + ${selectedFrom} + ' = ' + ${result} + ' ' + ${selectedTo}"></h3>
+  </div>
+</div>
+</body>
+</html>
