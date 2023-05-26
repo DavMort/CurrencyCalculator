@@ -1,8 +1,5 @@
 package com.example.CurrencyCalculator;
 
-import ch.qos.logback.core.util.SystemInfo;
-import org.springframework.boot.system.SystemProperties;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -11,6 +8,7 @@ import java.util.Scanner;
 
 public class CurrencyConverter {
 
+    //Limited API key, limited number of requests and auto disables after 30 days
     private final String API_KEY = "6d99276da2577d4c4316";
     private final String USER_AGENT_ID = "Java/" + System.getProperty("java.version");
 

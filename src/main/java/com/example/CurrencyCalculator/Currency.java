@@ -166,5 +166,5 @@ public enum Currency {
     ZAR,
     ZMK,
     ZMW,
-    ZWL;
+    ZWL
 }
